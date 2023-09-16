@@ -50,6 +50,6 @@ systemctl restart mongod &>> $LOGFILE
 
 VALIDATE $? "Restarting MongoDB"
 
- #
+ 
 
 
