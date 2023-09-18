@@ -30,23 +30,23 @@ yum module disable mysql -y &>> $LOGFILE
 
 VALIDATE $? "Disabling the default version"
 
-cp /home/centos/Roboshop-Shell/mysql.repo /etc/yum.repos.d/mysql.repo
+cp /home/centos/Roboshop-Shell/mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOGFILE
 
 VALIDATE $? "Copying MySQL repo"
 
-yum install mysql-community-server -y
+yum install mysql-community-server -y &>> $LOGFILE
 
 VALIDATE $? "Installing MySQL Server"
 
-systemctl enable mysqld
+systemctl enable mysqld &>> $LOGFILE
 
 VALIDATE $? "Enabling MySQL" 
 
-systemctl start mysqld
+systemctl start mysqld &>> $LOGFILE
 
 VALIDATE $? "Starting MySQL"
 
-mysql_secure_installation --set-root-pass RoboShop@1
+mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOGFILE
 
-VALIDATE $? "setting up the root password"
+VALIDATE $? "setting up root password"
 
