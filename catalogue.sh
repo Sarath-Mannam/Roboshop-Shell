@@ -5,7 +5,7 @@ LOGSDIR=/tmp
 SCRIPT_NAME=$0
 LOGFILE=$LOGSDIR/$0-$DATE.log
 USERID=$(id -u)
-SERVICE_USER=$(id -u roboshop)
+
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
@@ -39,6 +39,7 @@ VALIDATE $? "Installing NodeJS"
 
 # Once the user is created, If you run this script for 2nd time this command will definitely fail
 # IMPROVEMENT: First check the user already existed or not. if not exist then create
+SERVICE_USER=$(id roboshop)
 if [ $SERVICE_USER -ne 0 ];
 then 
      useradd roboshop  &>>$LOGFILE  # echo -e "$G User added $N"
