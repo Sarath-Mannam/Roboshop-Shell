@@ -40,18 +40,25 @@ VALIDATE $? "Installing NodeJS"
 # Once the user is created, If you run this script for 2nd time this command will definitely fail
 # IMPROVEMENT: First check the user already existed or not. if not exist then create
 SERVICE_USER=$(id roboshop)
-if [ $SERVICE_USER -ne 0 ];
+if [ $? -ne 0 ];
 then 
-     useradd roboshop  &>>$LOGFILE  # echo -e "$G User added $N"
+     echo -e "$Y...USER roboshop is not present so creating now..$N"
+     useradd roboshop  &>>$LOGFILE  
 else 
-     echo -e "$R Error:: Already service user is added $N"
-     exit 1
+     echo -e "$G Already roboshop user is added so skipping now. $N"
 fi           
 
 # If directory /app already exists then we will get an error, because you connot create the same again 
 # write a condition to check directory already exist or not    
-mkdir -p /app  &>>$LOGFILE
-
+CHECK_APP_DIR=$(cd /app)
+if [ $? -ne 0 ];
+then 
+    echo -e "$Y...APP Directory is not present so creating now..$N"
+    mkdir /app  &>>$LOGFILE
+else
+    echo -e "$G Error:: Already APP Directory is created so skipping now. $N"
+fi      
+    
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>>$LOGFILE
 
 VALIDATE $? "downloading catalogue artifact"
