@@ -48,7 +48,7 @@ else
 fi           
 
 # If directory /app already exists then we will get an error, because you connot create the same again 
-# write a condition to check directory already exist or not    
+# write a condition to check directory already exist (or) not    
 CHECK_APP_DIR=$(cd /app)
 if [ $? -ne 0 ];
 then 
