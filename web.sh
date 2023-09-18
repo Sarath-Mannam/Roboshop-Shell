@@ -61,4 +61,4 @@ VALIDATE $? "Copying roboshop config"
 
 systemctl restart nginx &>>$LOGFILE
 
-VALIDATE $? "Restarting Nginx"
+VALIDATE $? "Restarting Nginxx"
