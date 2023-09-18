@@ -42,7 +42,7 @@ rm -rf /usr/share/nginx/html/* &>>$LOGFILE
 
 VALIDATE $? "Removing default index html files"
 
-curl -o /tmp/frontend.zip https://roboshop-builds.s3.amazonaws.com/frontend.zip &>>$LOGFILE
+curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>>$LOGFILE
 
 VALIDATE $? "Downloading Web Artifact"
 
@@ -50,7 +50,7 @@ cd /usr/share/nginx/html &>>$LOGFILE
 
 VALIDATE $? "Moving to default HTML directory"
 
-unzip /tmp/frontend.zip &>>$LOGFILE
+unzip /tmp/web.zip &>>$LOGFILE
 
 VALIDATE $? "Unzipping web artifact"
 
