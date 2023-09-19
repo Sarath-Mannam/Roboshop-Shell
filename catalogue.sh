@@ -101,7 +101,7 @@ VALIDATE $? "Installing mongo client"
 
 mongo --host 172.31.44.203 </app/schema/catalogue.js  &>>$LOGFILE
 
-VALIDATE $? "Loading catalogue data to mongodb server"
+VALIDATE $? "Load catalogue data to mongodb server"
 
 
 
