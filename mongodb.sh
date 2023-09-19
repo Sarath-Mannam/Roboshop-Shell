@@ -1,5 +1,4 @@
 #!/bin/bash
-
 DATE=$(date +%F)
 LOGSDIR=/tmp
 SCRIPT_NAME=$0
