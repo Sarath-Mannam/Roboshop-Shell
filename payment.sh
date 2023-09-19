@@ -42,7 +42,9 @@ cd /app &>>$LOGFILE
 
 VALIDATE $? "Moving to app directory"
 
-unzip /tmp/payment.zip &>>$LOGFILE
+unzip /tmp/payment.zip 
+
+VALIDATE $? "unzipping artifact"
 
 pip3.6 install -r requirements.txt &>>$LOGFILE
 
