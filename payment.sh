@@ -30,29 +30,29 @@ yum install python36 gcc python3-devel -y &>>$LOGFILE
 
 VALIDATE $? "Installing python"
 
-useradd roboshop $LOGFILE
+useradd roboshop &>>$LOGFILE
 
-mkdir /app $LOGFILE
+mkdir /app &>>$LOGFILE
 
-curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip $LOGFILE
+curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip &>>$LOGFILE
 
 VALIDATE $? "Downloading Artifact"
 
-cd /app $LOGFILE
+cd /app &>>$LOGFILE
 
 VALIDATE $? "Moving to app directory"
 
-unzip /tmp/payment.zip $LOGFILE
+unzip /tmp/payment.zip &>>$LOGFILE
 
-pip3.6 install -r requirements.txt $LOGFILE
+pip3.6 install -r requirements.txt &>>$LOGFILE
 
 VALIDATE $? "Installing Dependencies"
 
-cp /home/centos/Roboshop-Shell/payment.service /etc/systemd/system/payment.service $LOGFILE
+cp /home/centos/Roboshop-Shell/payment.service /etc/systemd/system/payment.service &>>$LOGFILE
 
 VALIDATE $? "Copying Payment Service"
 
-systemctl daemon-reload $LOGFILE
+systemctl daemon-reload &>>$LOGFILE
 
 VALIDATE $? "Daemon reload"
 
