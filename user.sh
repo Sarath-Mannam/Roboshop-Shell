@@ -99,7 +99,7 @@ yum install mongodb-org-shell -y  &>>$LOGFILE
 
 VALIDATE $? "Installing mongo client"
 
-mongo --host 172.31.44.203 </app/schema/user.js  &>>$LOGFILE
+mongo --host mongodb.sarathmannam.online </app/schema/user.js  &>>$LOGFILE
 
 VALIDATE $? "Loading user data into mongodb server"
 
