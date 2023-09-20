@@ -80,7 +80,7 @@ VALIDATE $? "Loaded countries and cities info"
 
 systemctl restart shipping &>>$LOGFILE
 
-VALIDATE $? "Restarting shipping"
+VALIDATE $? "Restarting shippingg"
 
 
 
