@@ -32,7 +32,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOGFILE
 
 VALIDATE $? "Setting up NPM Source"
 
-yum install nodejs -y  &>>$LOGFILE
+yum install nodejs -y &>>$LOGFILE
 
 VALIDATE $? "Installing NodeJS"
 
@@ -42,7 +42,7 @@ SERVICE_USER=$(id roboshop)
 if [ $? -ne 0 ];
 then 
      echo -e "$Y...USER roboshop is not present so creating now..$N"
-     useradd roboshop  &>>$LOGFILE  
+     useradd roboshop &>>$LOGFILE  
 else 
      echo -e "$G Already roboshop user is added so skipping now. $N"
 fi           
@@ -58,7 +58,7 @@ else
     echo -e "$G Error:: Already APP Directory is created so skipping now. $N"
 fi      
     
-curl -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip  &>>$LOGFILE
+curl -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>>$LOGFILE
 
 VALIDATE $? "downloading cart artifact"
 
