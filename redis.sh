@@ -48,4 +48,4 @@ VALIDATE $? "Enabling redis"
 
 systemctl start redis &>>$LOGFILE
 
-VALIDATE $? "Starting Redis"
+VALIDATE $? "Startingg Redis"
