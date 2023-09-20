@@ -64,4 +64,4 @@ VALIDATE $? "Enable Payment"
 
 systemctl start payment &>>$LOGFILE
 
-VALIDATE $? "Starting Payment"
+VALIDATE $? "Startting Payment"
