@@ -10,12 +10,12 @@ SECURITY_GROUP_ID=sg-0a92292ce4af7fec5
 # to loop through the array is, now we will get all these names into this for loop
 for i  in "${NAMES[@]}" 
 do
-   if [ [ $i == "mongodb" || $i == "mysql" ] ];
+   if [[ $i == "mongodb" || $i == "mysql" ]]
    then 
         INSTANCE_TYPE="t3.medium"
    else
         INSTANCE_TYPE="t2.micro"
    fi        
    echo "creating $i instance"
-   aws ec2 run-instances --image-id $Image_ID --count 1 --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY_GROUP_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=demo-$i}]"
+   aws ec2 run-instances --image-id $Image_ID --count 1 --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY_GROUP_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]"
 done
