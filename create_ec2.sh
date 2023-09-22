@@ -17,5 +17,8 @@ do
         INSTANCE_TYPE="t2.micro"
    fi        
    echo "creating $i instance"
-   aws ec2 run-instances --image-id $Image_ID --count 1 --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY_GROUP_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]"
+   # Below command help to create a instance and that is giving private ip address and saving it in a variable called IP_ADDRESS
+  IP_ADDRESS=$(aws ec2 run-instances --image-id $Image_ID --count 1 --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY_GROUP_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" | jq -r '.Instance[0].PrivateIpAddress')
+   #Above tag specification is for tagging a name for created EC2 Instance
+   echo "created $i instance: $IP_ADDRESS"
 done
