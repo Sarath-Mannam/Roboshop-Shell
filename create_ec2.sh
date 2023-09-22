@@ -24,7 +24,7 @@ do
    
    #Once instance got created our responsibility is to create the route53 record also through AWS command line.
 
-   $ aws route53 change-resource-record-sets --hosted-zone-id Z02121923K5UGPEXXP68X --change-batch '
+   aws route53 change-resource-record-sets --hosted-zone-id Z02121923K5UGPEXXP68X --change-batch '
    {
             "Changes": [{
             "Action": "CREATE",
