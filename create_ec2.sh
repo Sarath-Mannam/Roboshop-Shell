@@ -10,7 +10,7 @@ SECURITY_GROUP_ID=sg-0a92292ce4af7fec5
 # to loop through the array is, now we will get all these names into this for loop
 for i  in "${NAMES[@]}" 
 do
-   if [ [ $i == "mongodb" || $i == "mysql" ] ]
+   if [ [ $i == "mongodb" || $i == "mysql" ] ];
    then 
         INSTANCE_TYPE="t3.medium"
    else
