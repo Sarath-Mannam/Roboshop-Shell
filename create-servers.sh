@@ -1,10 +1,11 @@
 #/bin/bash
 # creating an Array
-NAMES=$@ # i want to give the names through command line
+NAMES=$@ # i want to give the names of server through command line
 INSTANCE_TYPE=""
 Image_ID=ami-03265a0778a880afb
 SECURITY_GROUP_ID=sg-0a92292ce4af7fec5
 DOMAIN_NAME=sarathmannam.online
+HOSTED_ZONE_ID=Z1026538218S2X9SDH39X
 
 # For mysql & mongodb instance_type should be t3.medium, for all others t2.micro. So this is the condition we should check. 
 # to loop through the array is, now we will get all these names into this for loop
@@ -24,7 +25,7 @@ do
    
    #Once instance got created our responsibility is to create the route53 record also through AWS command line.
 
-   aws route53 change-resource-record-sets --hosted-zone-id Z02121923K5UGPEXXP68X --change-batch '
+   aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch '
    {
             "Changes": [{
             "Action": "CREATE",
